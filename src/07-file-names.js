@@ -1,41 +1,14 @@
-/**
- * There's a list of file, since two files cannot have equal names,
- * the one which comes later will have a suffix (k),
- * where k is the smallest integer such that the found name is not used yet.
- *
- * Return an array of names that will be given to the files.
- *
- * @param {Array} names
- * @return {Array}
- *
- * @example
- * For input ["file", "file", "image", "file(1)", "file"],
- * the output should be ["file", "file(1)", "image", "file(1)(1)", "file(2)"]
- *
- */
 function renameFiles(names) {
   let temp;
-  for (let i = 0; i < names.length; i++) {
-    temp = names[i];
-    for (let j = 0; j < names.length; j++) {
-      if(temp===names[j]){
-names[j]=names[j]+'('+i+1+')'
+  const mas = names;
+  for (let i = 0; i < mas.length; i++) {
+    temp = mas[i];
+    for (let j = i + 1; j < mas.length; j++) {
+      if (temp === mas[j]) {
+        mas[j] = `${mas[j]}(${i + 1})`;
       }
     }
   }
+  return mas;
 }
-
 module.exports = renameFiles;
-function renameFiles1(names) {
-  let temp;
-  for (let i = 0; i < names.length; i++) {
-    temp = names[i];
-    for (let j = i+1; j < names.length; j++) {
-      if(temp===names[j]){
-      names[j]=names[j]+'('+(i+1)+')'
-      }
-    }
-  }
-  return names;
-}
-console.log(renameFiles1(["file", "file", "image", "file(1)", "file"]))

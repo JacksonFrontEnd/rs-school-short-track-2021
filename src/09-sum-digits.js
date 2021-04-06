@@ -1,22 +1,12 @@
-/**
- * Given a number, replace this number with
- * the sum of its digits until we get to a one digit number.
- *
- * @param {Number} n
- * @return {Number}
- *
- * @example
- * For 100, the result should be 1 (1 + 0 + 0 = 1)
- * For 91, the result should be 1 (9 + 1 = 10, 1 + 0 = 1)
- *
- */
 function getSumOfDigits(n) {
-  let res=0;
-  var arr = [];
-  while(n>0){arr.unshift(n%10);n=n/10|0;}
-  arr.forEach(elem=>res+=elem)
-  if(res>9){
-    res-=9;
+  let res = 0;
+  let num = n;
+  const arr = [];
+  while (n > 0) { arr.unshift(n % 10); num = num / 10 || 0; }
+  // eslint-disable-next-line no-return-assign
+  arr.forEach((elem) => res += elem);
+  if (res > 9) {
+    res -= 9;
   }
   return res;
 }
