@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 function getMatrixElementsSum(matrix) {
   let sum = 0;
   let fl = 0;
