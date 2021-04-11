@@ -11,18 +11,25 @@
  *
  */
 class Stack {
+  constructor () {
+    this.arr = [];
+    this.index = 0;
+  }
+
   push(element) {
     this.arr[this.index] = element;
-    this.curr = element;
+    this.index++;
   }
 
   pop() {
     this.curr = this.arr[this.index - 1];
     this.arr.splice(this.index, 1);
+    this.index--;
+    return this.curr;
   }
 
   peek() {
-    return this.curr;
+    return this.arr[this.index - 1];
   }
 }
 
